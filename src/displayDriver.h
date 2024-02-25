@@ -1,11 +1,10 @@
 #pragma once
 #include <Arduino.h>
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <SPI.h>
 #include <Adafruit_SSD1306.h>
+#include <Adafruit_GFX.h>
 
-#define OLED_RESET 4
+#define OLED_ADDR 0x3c
 
 class DisplayDriver
 {
@@ -13,6 +12,7 @@ private:
     Adafruit_SSD1306 display;
 public:
     DisplayDriver(Adafruit_SSD1306 afDisplay);
-    void InitDisplayDriver(int address = 0x3c);
-    void ShowMessageForMS(String msg, int ms);
+    void InitDisplayDriver();
+    void ShowMessageMS(String msg, int ms, int fontSize);
+    void ShowMessage(String msg, int fontSize);
 };

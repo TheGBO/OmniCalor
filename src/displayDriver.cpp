@@ -5,19 +5,27 @@ DisplayDriver::DisplayDriver(Adafruit_SSD1306 afDisplay)
     display = afDisplay;
 }
 
-void DisplayDriver::ShowMessageForMS(String msg, int ms)
+void DisplayDriver::ShowMessageMS(String msg, int ms, int fontSize)
+{
+    ShowMessage(msg, fontSize);
+    delay(ms);
+    display.clearDisplay();
+    display.display();
+}
+
+void DisplayDriver::ShowMessage(String msg, int fontSize)
 {
     display.clearDisplay();
-    display.setTextSize(1);
+    display.setTextSize(fontSize);
     display.setCursor(0,8);
     display.println(msg);
     display.display();
-    delay(ms);
 }
 
-void DisplayDriver::InitDisplayDriver(int address)
+void DisplayDriver::InitDisplayDriver()
 {
-    display.begin(SSD1306_SWITCHCAPVCC, address);
+    display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR);
     display.clearDisplay();
+    display.display();
     display.setTextColor(WHITE);
 }
