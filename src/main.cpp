@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "displayDriver.h"
+#include "thermistorDriver.h"
 
 Adafruit_SSD1306* display = new Adafruit_SSD1306(128, 64);
 DisplayDriver* displayDriver;
