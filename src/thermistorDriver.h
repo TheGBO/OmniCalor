@@ -25,4 +25,5 @@ public:
     ThermistorDriver(float fixedResistorValue);
     float ReadKelvin(int analogValue);
     float ReadCelsius(int analogValue);
+    float ReadFahrenheit(int analogValue);
 };

@@ -17,3 +17,8 @@ float ThermistorDriver::ReadCelsius(int analogValue)
 {
     return ReadKelvin(analogValue) - 273.15;
 }
+
+float ThermistorDriver::ReadFahrenheit(int analogValue)
+{
+    return (ReadCelsius(analogValue)*9+160)/5;
+}
